@@ -13,6 +13,8 @@ export default class Menu{
     this.handleEscClose = this.handleEscClose.bind(this);
 
     this.#setListeners();
+
+    this.open();
   }
 
   #setListeners(){
