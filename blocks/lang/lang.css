@@ -51,6 +51,7 @@
   position: absolute;
   top: calc(100% - 5px);
   right: 0%;
+  z-index: 600;
 
   min-width: 120px;
 
