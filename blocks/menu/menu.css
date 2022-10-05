@@ -1,0 +1,166 @@
+.menu {
+  --burger-size: 25px;
+  --burger-ratio: 1;
+  --burger-color: #fff;
+  --menu-backdrop-color: rgb(193, 156, 88);
+  --menu-backdrop-opacity: 1;
+  --menu-item-link-color: #fff;
+  --menu-item-text-color: #fff;
+
+}
+
+.menu__burger {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+  width: var(--burger-size);
+  aspect-ratio: var(--burger-ratio);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+
+  transform: scaleY(1);
+
+  transition: all 600ms ease-in-out;
+}
+
+.menu__burger_active {
+  transform: scaleY(0);
+}
+
+.menu__burger:focus {
+  outline: 0;
+}
+
+.menu__burger-line {
+  width: 100%;
+  height: 3px;
+  background-color: var(--burger-color);
+}
+
+.menu__backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  background-color: var(--menu-backdrop-color);
+
+  visibility: hidden;
+  opacity: 0;
+  transform: scale(0);
+
+  transform-origin: right top;
+  transition: all 600ms ease-in-out;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu__container {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 45px;
+}
+
+.menu__container_visible {
+  visibility: visible;
+  opacity: var(--menu-backdrop-opacity);
+  transform: scale(1);
+}
+
+.menu__list {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  list-style: none;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+
+  transform: scale(0);
+
+  transition: transform 900ms ease-in-out;
+}
+
+.menu__list_horizontal {
+  flex-direction: row;
+}
+
+.menu__container_visible .menu__list{
+  transform: scale(1);
+}
+
+.menu__item {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: var(--menu-item-text-color);
+}
+
+.menu__item-link {
+  text-decoration: none;
+  font-size: 24px;
+  color: var(--menu-item-link-color)
+}
+
+.menu__close {
+  position: absolute;
+  width: 35px;
+  aspect-ratio: 1;
+  top: 120%;
+  left: auto;
+  cursor: pointer;
+
+  transform: scale(1);
+
+  transition: all 200ms ease-in-out;
+}
+
+.menu__close_hidden{
+  transform: scale(0);
+}
+
+.menu__close::after{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left:0;
+
+  width: 100%;
+  height: 2px;
+  background-color: var(--menu-item-link-color);
+
+  transform: rotate(45deg);
+}
+
+
+.menu__close::before{
+  content: '';
+  display: block;
+  position: absolute;
+  top: 50%;
+  left:0;
+
+  width: 100%;
+  height: 2px;
+  background-color: var(--menu-item-link-color);
+
+  transform: rotate(-45deg);
+}

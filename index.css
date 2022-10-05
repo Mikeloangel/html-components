@@ -1,6 +1,7 @@
 @import url(./blocks/search-box/search-box.css);
 @import url(./blocks/lang/lang.css);
 @import url(./blocks/underline-animation/underline-animation.css);
+@import url(./blocks/menu/menu.css);
 
 .preloader {
   transition: none !important;
@@ -11,14 +12,14 @@
 }
 
 .root {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
 
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 
-  background-color: #2378FC;
+  background-color: #587095;
 }
 
 .header {
@@ -62,6 +63,10 @@
 
 .service {
   /* outline: 1px solid lime; */
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 25px;
 
   padding: 10px;
 }
