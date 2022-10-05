@@ -14,7 +14,7 @@ export default class Menu{
 
     this.#setListeners();
 
-    this.open();
+    // this.open();
   }
 
   #setListeners(){
