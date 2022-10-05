@@ -3,8 +3,8 @@ import enableLangSelect from "./blocks/lang/lang.js";
 import Menu from "./blocks/menu/menu.js";
 import Slider from "./blocks/slider/slider.js";
 
-// const search = new SearchBox({boxSelector: 'search-box'});
-// enableLangSelect();
+const search = new SearchBox({boxSelector: 'search-box'});
+enableLangSelect();
 const menu = new Menu({})
 
 const imgdata = [
