@@ -8,10 +8,13 @@ export default class Slider {
   #btnNext;
   #btnPrevious;
 
+  #sliderLink;
+  #onClick
+
   #currentCard = 0;
   #cards = [];
 
-  constructor({ selector = 'slider' }) {
+  constructor({ selector = 'slider', onClick }) {
     this.#sliderElement = document.querySelector(`.${selector}`);
     this.#imgTopElement = this.#sliderElement.querySelector('.slider_imgA');
     this.#imgBottomElement = this.#sliderElement.querySelector('.slider_imgB');
@@ -19,6 +22,9 @@ export default class Slider {
     this.#descriptionElement = this.#sliderElement.querySelector('.slider__description');
     this.#btnNext = this.#sliderElement.querySelector('.slider_next');
     this.#btnPrevious = this.#sliderElement.querySelector('.slider_previous');
+    this.#sliderLink = this.#sliderElement.querySelector('.slider__img-link');
+
+    this.#onClick = onClick;
 
     this.#setEventListeners();
   }
@@ -26,6 +32,16 @@ export default class Slider {
   #setEventListeners() {
     this.#btnNext.addEventListener('click', this.nextSlide.bind(this));
     this.#btnPrevious.addEventListener('click', this.previousSlide.bind(this));
+    this.#sliderLink.addEventListener('click', this.handleImageClick.bind(this));
+  }
+
+  handleImageClick(e) {
+    if(typeof this.#onClick === 'function'){
+      e.preventDefault();
+      this.#onClick(this.#cards[this.#currentCard]);
+    }else{
+
+    }
   }
 
   nextSlide(e) {
@@ -71,8 +87,8 @@ export default class Slider {
     this.#imgBottomElement.src = current.img;
     this.#imgBottomElement.alt = current.name;
 
-    this.#descriptionElement.innerText = current.name || ' ';
-    this.#sliderLinkElement.href = current.link;
+    this.#descriptionElement.innerText = current.name || '';
+    this.#sliderLinkElement.href = current.link || '#';
 
     if (this.#currentCard === 0) {
       this.#btnPrevious.classList.add('slider__service-link_inactive');

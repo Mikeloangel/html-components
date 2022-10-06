@@ -1,0 +1,54 @@
+.imagepopup {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 600;
+
+  background-color: rgba(0, 0, 0, .8);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transform-origin: center center;
+  transition: opacity 300ms ease-in-out, visibility 300ms ease-in-out;
+}
+
+.imagepopup_visible {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* prevents broken image icon to appear during closing animation */
+.imagepopup .imagepopup__img{
+  visibility: hidden;
+}
+
+.imagepopup_visible .imagepopup__img{
+  visibility: visible;
+}
+/*  */
+
+.imagepopup__figure {
+  padding: 0;
+  margin: 0;
+}
+
+.imagepopup__img {
+  max-height: 80vh;
+  max-width: 80vw;
+  object-fit: contain;
+
+  box-shadow: 2px 2px 5px rgba(256, 256, 256, .6);
+}
+
+.imagepopup__caption {
+  padding: 20px 0 0 0;
+  margin: 0;
+  color: #aaa;
+}
