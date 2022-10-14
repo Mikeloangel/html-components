@@ -14,37 +14,25 @@ export default class LsItem {
   }
 
   checkValid(query, isResetNeeded) {
+    //on reset perform full compare
     if (isResetNeeded) {
       if (this.#cbCompare(query, this.#element)) {
         this.showItem();
-        this.#isHidden = false;
       } else {
         this.hideItem();
-        this.#isHidden = true;
       }
       return;
     }
 
-    if (query === '') {
-      this.showItem();
-      this.#isHidden = false;
-      return;
-    }
-
+    //do not compare if it is already hidden
+    //should use a reset flag to show item
     if (this.#isHidden) {
       return;
     }
 
-    if (this.#cbCompare(query, this.#element)) {
-      if (this.#isHidden) {
-        this.showItem();
-        this.#isHidden = false;
-      }
-    } else {
-      if (!this.#isHidden) {
-        this.hideItem();
-        this.#isHidden = true;
-      }
+    //compare to determine do we need to hide element
+    if (!this.#cbCompare(query, this.#element)) {
+      this.hideItem();
     }
   }
 
@@ -54,9 +42,11 @@ export default class LsItem {
 
   showItem() {
     this.#element.classList.remove(this.#hiddenSelector);
+    this.#isHidden = false;
   }
 
   hideItem() {
     this.#element.classList.add(this.#hiddenSelector);
+    this.#isHidden = true;
   }
 }
