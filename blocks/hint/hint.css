@@ -1,0 +1,44 @@
+.hint {
+  text-decoration: underline;
+  text-decoration-style: dashed;
+  text-decoration-color: rgb(90, 26, 82);
+  text-decoration-thickness: 3px;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+
+.hint-bubble {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  max-width: 200px;
+  z-index: 600;
+
+  padding: 3px 15px;
+
+  background-color: white;
+  border: 1px solid gray;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, .5);
+  box-sizing: border-box;
+
+  visibility: hidden;
+  opacity: 0;
+
+  transition: visibility 0s ease, opacity 300ms ease;
+}
+
+.hint-bubble_visible {
+  visibility: visible;
+  opacity: 1;
+}
+
+.hint-bubble__content {
+  padding: 0;
+  margin: 0;
+
+  line-height: 1.2;
+  letter-spacing: .05em;
+  font-size: 18px;
+  color: #333;
+}

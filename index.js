@@ -10,6 +10,10 @@ import ListSelector from "./components/ListSelector.js";
 import ListSelectorItem from "./components/ListSelectorItem.js";
 import ListSelectorStatic from "./components/ListSelectorStatic.js";
 
+import enableHints from "./components/hint.js";
+
+console.time('APP')
+
 /** SEARCH BOX */
 const searchBox = new SearchBox({ boxSelector: 'search-box' });
 
@@ -53,3 +57,8 @@ listSelectorItemArray.forEach(cityElement => {
 });
 
 console.timeEnd('CityInit');
+
+
+//hints
+enableHints();
+

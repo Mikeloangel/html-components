@@ -11,6 +11,8 @@ Blocks:
   * элемент с бургер меню
 * List Selector
   * компонент для поиска среди эелементов списка (например выбор города)
+* Hint
+  * функция enableHint длz работы с подсказками по клику
 
 ---
 * GHPages https://mikeloangel.github.io/html-components/index.html
