@@ -33,8 +33,10 @@ export default class Ls{
   }
 
   #handleInput(e){
+    //e.data === null is used to determine is reset for item is needed
+    //i. e. backspace will trigger e.data === null
     console.time('HandleInput');
-    this.performSearch(e.target.value);
+    this.performSearch(e.target.value, e.data === null);
     console.timeEnd('HandleInput');
   }
 
@@ -47,13 +49,12 @@ export default class Ls{
 
   #handleClick(e){
     if(e.target.classList.contains(`${this.#selector}__list-item`)){
-      // console.log(e.target.textContent);
       this.#onSelect(e.target);
     }
   }
 
-  performSearch(query){
-    this.#cbList.forEach(fn => fn(query));
+  performSearch(query, needReset = true){
+    this.#cbList.forEach(fn => fn(query, needReset));
   }
 
   loadItemAndSubscribe(item, cb){
