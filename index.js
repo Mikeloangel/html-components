@@ -4,13 +4,21 @@ import Menu from "./blocks/menu/menu.js";
 import Slider from "./blocks/slider/slider.js";
 import ImagePopup from "./components/ImagePopup.js";
 
-import { imgdata } from "./utils/data.js";
+import { imgdata, cityListBig } from "./utils/data.js";
 
+import Ls from "./components/ls.js";
+import LsItem from "./components/lsItem.js";
+
+/** SEARCH BOX */
 const search = new SearchBox({ boxSelector: 'search-box' });
+
+/** Language selector */
 enableLangSelect();
+
+/** Burger menu */
 const menu = new Menu({})
 
-// const slider = new Slider({});
+/** Slider gallery */
 const slider = new Slider({ onClick: handleSliderClick });
 slider.loadCards(imgdata);
 
@@ -18,11 +26,40 @@ function handleSliderClick(card) {
   imgPopup.open(card.img, card.name);
 }
 
-const imgPopup = new ImagePopup({ selector: 'imagepopup' })
+/** Image popup */
+const imgPopup = new ImagePopup({ selector: 'imagepopup' });
+
+/** City selector */
+
+console.time('Init')
+
+const listTemplate = document.querySelector('#ls-city').
+                      content.querySelector('.ls__list-item');
 
 
-//disables transition effects to trigger before load
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelector('.preloader').classList.remove('preloader');
+function createCityElement(cityName) {
+  const cityElement = listTemplate.cloneNode(true);
+  cityElement.title = cityName;
+  cityElement.textContent = cityName;
+  return cityElement;
+}
+
+function handleCompare(query, htmlElement) {
+  return  htmlElement.textContent.toLowerCase().includes(query.toLowerCase());
+}
+
+function handleCitySelect(element){
+  console.log(element.textContent);
+}
+
+let cityListElements = cityListBig.map( city => {
+  return new LsItem({comparator: handleCompare, selectorHide:'ls__hide', htmlElement:createCityElement(city)})
 });
 
+const citySelector = new Ls({onClick:handleCitySelect});
+
+cityListElements.forEach(cityElement =>{
+  citySelector.loadItemAndSubscribe(cityElement.getElement(),cityElement.checkValid)
+});
+
+console.timeEnd('Init');

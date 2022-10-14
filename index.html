@@ -6,6 +6,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="./index.css">
+  <script>
+    //disables transition effects to trigger before load
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelector('.preloader').classList.remove('preloader');
+    });
+  </script>
   <script src="./index.js" type="module"></script>
   <title>Document</title>
 </head>
@@ -88,10 +94,13 @@
   </header>
 
   <main class="main">
-    <section class="section section_horizontal">
+    <section class="section">
+      <h1 class="section__title">Компоненты</h1>
+    </section>
+    <section class="section section_horizontal" aria-label="Секция с картинкой">
       <div class="section__pane">
-        <h1 class="section__header">Look</h1>
-        <p class="section__subtitle">Simple gallery</p>
+        <h2 class="section__header">Простой слайдер</h2>
+        <p class="section__paragraph">Simple gallery</p>
       </div>
       <div class="section__pane">
 
@@ -111,13 +120,33 @@
 
       </div>
     </section>
+
+    <section class="section">
+      <h2 class="section__header">Селектор города</h2>
+
+      <section class="ls" aria-label="Выбор с поиском из списка">
+
+        <form action="" novalidate name="ls-form" class="ls__form">
+          <input type="text" class="ls__input" name="ls-input">
+          <button class="ls__btn-transparent" type="submit"><img src="./images/loupe.png" alt="Search"
+              class="ls__search-image"></button>
+        </form>
+
+        <div class="ls__container">
+          <ul class="ls__list">
+          </ul>
+
+          <template id="ls-city">
+            <li class="ls__list-item" title=""></li>
+          </template>
+        </div>
+      </section>
+    </section>
   </main>
 
   <div class="imagepopup">
     <figure class="imagepopup__figure">
-      <img
-        src="#"
-        alt="#" class="imagepopup__img">
+      <img src="#" alt="#" class="imagepopup__img">
       <figcaption class="imagepopup__caption">#</figcaption>
     </figure>
   </div>
