@@ -24,13 +24,19 @@
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  /* outline: 1px solid lime */
+
+  transition: all 400ms ease;
+}
+
+.ls__form:has(:focus){
+  max-width: 90%;
 }
 
 .ls__input {
   flex-basis: 100%;
   border: 0;
   border-bottom: 1px solid gray;
+  border-radius: 0;
   height: 35px;
   padding: 5px 0 5px 20px;
   font-size: 18px;
@@ -48,6 +54,12 @@
 .ls__search-image {
   height: 35px;
   opacity: .7;
+  transition: all 500ms ease;
+}
+
+.ls__search-image:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 .ls__container {
@@ -61,7 +73,6 @@
   list-style: none;
 
   display: grid;
-  /* grid-template-columns: repeat(5, 1fr); */
   grid-template-columns: repeat(auto-fit, minmax(200px, min-content));
   column-gap: 20px;
 }
@@ -88,18 +99,19 @@
   display: none;
 }
 
-/* .ls * {outline: 1px solid lime} */
+@media screen and (max-width:768px) {
+  .ls__container{
+    padding: 5px;
+  }
 
-.ls__list-item_no-items {
-  font-size: 14px;
-  font-style: italic;
-  color: #555;
-  display: none;
-}
+  .ls__list{
+    column-gap: 10px;
+  }
 
-.ls__list:has(:only-child) .ls__list-item_no-items {
-  /* .ls__list:blank::after{ */
-  display: block;
+  .ls__list-item{
+    font-size: 14px;
+    font-weight: bold;
+  }
 }
 
 @media screen and (max-width:340px) {

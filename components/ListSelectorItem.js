@@ -1,4 +1,4 @@
-export default class LsItem {
+export default class ListSelectorItem {
   #element;
   #hiddenSelector;
 
@@ -13,7 +13,7 @@ export default class LsItem {
     this.checkValid = this.checkValid.bind(this);
   }
 
-  checkValid(query, isResetNeeded) {
+  checkValid(query, isResetNeeded = true) {
     //on reset perform full compare
     if (isResetNeeded) {
       if (this.#cbCompare(query, this.#element)) {

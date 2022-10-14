@@ -1,16 +1,17 @@
+import { imgdata, cityListBig } from "./utils/data.js";
+
 import SearchBox from "./blocks/search-box/search-box.js";
 import enableLangSelect from "./blocks/lang/lang.js";
 import Menu from "./blocks/menu/menu.js";
 import Slider from "./blocks/slider/slider.js";
 import ImagePopup from "./components/ImagePopup.js";
 
-import { imgdata, cityListBig } from "./utils/data.js";
-
-import Ls from "./components/ls.js";
-import LsItem from "./components/lsItem.js";
+import ListSelector from "./components/ListSelector.js";
+import ListSelectorItem from "./components/ListSelectorItem.js";
+import ListSelectorStatic from "./components/ListSelectorStatic.js";
 
 /** SEARCH BOX */
-const search = new SearchBox({ boxSelector: 'search-box' });
+const searchBox = new SearchBox({ boxSelector: 'search-box' });
 
 /** Language selector */
 enableLangSelect();
@@ -30,36 +31,25 @@ function handleSliderClick(card) {
 const imgPopup = new ImagePopup({ selector: 'imagepopup' });
 
 /** City selector */
+//all callbacks are in static class ListSelectorStatic
+console.time('CityInit');
 
-console.time('Init')
+//list item template
+const listTemplate = document.querySelector('#ls-city').content.querySelector('.ls__list-item');
 
-const listTemplate = document.querySelector('#ls-city').
-                      content.querySelector('.ls__list-item');
-
-
-function createCityElement(cityName) {
-  const cityElement = listTemplate.cloneNode(true);
-  cityElement.title = cityName;
-  cityElement.textContent = cityName;
-  return cityElement;
-}
-
-function handleCompare(query, htmlElement) {
-  return  htmlElement.textContent.toLowerCase().includes(query.toLowerCase());
-}
-
-function handleCitySelect(element){
-  console.log(element.textContent);
-}
-
-let cityListElements = cityListBig.map( city => {
-  return new LsItem({comparator: handleCompare, selectorHide:'ls__hide', htmlElement:createCityElement(city)})
+//creates for each city its ListSelectorItem object with html element
+let listSelectorItemArray = cityListBig.map( city => {
+  return new ListSelectorItem({
+    selectorHide:'ls__hide',
+    htmlElement:ListSelectorStatic.createItemElement(city, listTemplate ),
+    comparator: ListSelectorStatic.handleCompare
+  });
 });
 
-const citySelector = new Ls({onClick:handleCitySelect});
-
-cityListElements.forEach(cityElement =>{
+//instanciate ListSelector then subscribes all list items and adds to list container
+const citySelector = new ListSelector({onClick:ListSelectorStatic.handleItemSelect});
+listSelectorItemArray.forEach(cityElement =>{
   citySelector.loadItemAndSubscribe(cityElement.getElement(),cityElement.checkValid)
 });
 
-console.timeEnd('Init');
+console.timeEnd('CityInit');

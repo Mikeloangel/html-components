@@ -9,6 +9,8 @@ Blocks:
   * CSS класс для анимации ссылок
 * Menu
   * элемент с бургер меню
+* List Selector
+  * компонент для поиска среди эелементов списка (например выбор города)
 
 ---
 * GHPages https://mikeloangel.github.io/html-components/index.html
