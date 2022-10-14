@@ -38,18 +38,18 @@ console.time('CityInit');
 const listTemplate = document.querySelector('#ls-city').content.querySelector('.ls__list-item');
 
 //creates for each city its ListSelectorItem object with html element
-let listSelectorItemArray = cityListBig.map( city => {
+let listSelectorItemArray = cityListBig.map(city => {
   return new ListSelectorItem({
-    selectorHide:'ls__hide',
-    htmlElement:ListSelectorStatic.createItemElement(city, listTemplate ),
+    selectorHide: 'ls__hide',
+    htmlElement: ListSelectorStatic.createItemElement(city, listTemplate),
     comparator: ListSelectorStatic.handleCompare
   });
 });
 
 //instanciate ListSelector then subscribes all list items and adds to list container
-const citySelector = new ListSelector({onClick:ListSelectorStatic.handleItemSelect});
-listSelectorItemArray.forEach(cityElement =>{
-  citySelector.loadItemAndSubscribe(cityElement.getElement(),cityElement.checkValid)
+const citySelector = new ListSelector({ onClick: ListSelectorStatic.handleItemSelect });
+listSelectorItemArray.forEach(cityElement => {
+  citySelector.loadItemAndSubscribe(cityElement.getElement(), cityElement.checkValid)
 });
 
 console.timeEnd('CityInit');

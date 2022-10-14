@@ -78,7 +78,7 @@
 }
 
 .slider__description {
-  /* when empty */
+  /* otherwise collapses when empty */
   min-height: 18px;
   color: white;
 }
