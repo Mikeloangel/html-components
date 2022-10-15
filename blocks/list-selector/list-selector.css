@@ -1,3 +1,5 @@
+/* ls works with ListSelector and ListSelectorItem classes to form
+a list selector like for cities */
 .ls {
   width: 90%;
   min-height: 150px;
@@ -46,6 +48,11 @@
 
   font-size: 18px;
   color: #333;
+}
+
+.ls__input::placeholder{
+  font-style: italic;
+  font-size: 14px;
 }
 
 .ls__btn-transparent {

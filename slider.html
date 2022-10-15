@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="stylesheet" href="./pages/common.css">
+  <link rel="stylesheet" href="./pages/slider.css">
   <style>
     /* disables animatio before dom loaded */
     .preloader {
@@ -22,7 +23,7 @@
     document.addEventListener('DOMContentLoaded', handlePreloader);
   </script>
   <script src="./pages/common.js" type="module"></script>
-  <script src="./pages/index.js" type="module"></script>
+  <script src="./pages/slider.js" type="module"></script>
   <title>HTML компоненты</title>
 </head>
 
@@ -31,11 +32,11 @@
     <nav class="header__nav">
       <ul class="header__navlist">
         <li class="header__navitem"><a href="index.html"
-            class="header__navitem-link underline-animation header__navitem-link_current">Главная</a></li>
+            class="header__navitem-link underline-animation">Главная</a></li>
         <li class="header__navitem"><a href="components.html"
             class="header__navitem-link underline-animation">Мелкие&nbsp;компоненты</a></li>
         <li class="header__navitem"><a href="index.html" class="header__navitem-link underline-animation">Меню</a></li>
-        <li class="header__navitem"><a href="slider.html" class="header__navitem-link underline-animation">Слайдер</a>
+        <li class="header__navitem"><a href="slider.html" class="header__navitem-link underline-animation header__navitem-link_current">Слайдер</a>
         </li>
         <li class="header__navitem"><a href="selector.html"
             class="header__navitem-link underline-animation">Селектор</a></li>
@@ -104,24 +105,57 @@
   </header>
 
   <main class="main">
-    <section class="section">
-      <h1 class="section__header">HTML компоненты</h1>
-      <p class="section__paragraph">
-
-      </p>
+    <section class="section section_horizontal">
+      <h1 class="section__header">Простой слайдер</h1>
+      <div class="section__pane">
+        <div class="section__wrapper">
+          <div class="section__panel">
+            <p class="section__paragraph">
+              Простой слайдер картинок с настраиваемым поведением по
+              <span data-tooltip="принимает callback для определения действия" class="hint">клику</span>
+              на изображение.
+            </p>
+            <p class="section__paragraph">
+              На этой странице реализоаны разные компоненты с целью тренировки в
+              <span class="hint" data-tooltip="На ванильном JS, HTML, CSS"> написании</span>
+              кода.
+            </p>
+            <p class="section__paragraph">
+              Так же ожидается портирование данных компонентов на
+              <span class="hint" data-tooltip="Очень скоро!">React.js</span>
+            </p>
+          </div>
+          <div class="section__panel">
+            <div class="slider">
+              <figure class="slider__figure">
+                <a href="#" class="slider__img-link">
+                  <img src="#" alt="Alt" class="slider__img slider__img_toplayer slider_imgA">
+                  <img src="#" alt="Alt" class="slider__img slider__img_filtered slider_imgB">
+                </a>
+              </figure>
+              <div class="slider__service">
+                <a href="#" class="slider__service-link slider_previous">&lt; Пред</a>
+                <p class="slider__description">#</p>
+                <a href="#" class="slider__service-link slider_next">След &gt;</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
+
   </main>
 
   <footer class="footer">
     <small class="footer__smallprint">2022 &copy; by Варушичев Михаил</small>
   </footer>
 
-  <!-- <div class="imagepopup">
+  <div class="imagepopup">
     <figure class="imagepopup__figure">
       <img src="#" alt="#" class="imagepopup__img">
       <figcaption class="imagepopup__caption">#</figcaption>
     </figure>
-  </div> -->
+  </div>
 
   <div class="hint-bubble">
     <p class="hint-bubble__content">

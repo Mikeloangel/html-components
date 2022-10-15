@@ -1,0 +1,36 @@
+@import url(./common.css);
+
+
+/*
+@import url(../blocks/slider/slider.css);
+@import url(../blocks/list-selector/list-selector.css);
+/* @import url(../blocks/imagepopup/imagepoopup.css); */
+@import url(../blocks/hint/hint.css);
+
+
+/* * {outline: 1px solid maroon;} */
+
+.button{
+  padding: 5px 20px;
+  margin: 0;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: 3px;
+
+  background-color: var(--bg-color,rgb(112, 162, 119));
+  color: var(--text-color, #fff);
+
+  cursor: pointer;
+  transition: all 300ms ease;
+}
+.button:hover{
+  box-shadow: 0 0 15px var(--shadow, rgba(255, 200, 0, 1));
+}
+
+.button:focus{
+  outline: 1px solid #fff;
+}
+
+.button_hidden{
+  display: none;
+}

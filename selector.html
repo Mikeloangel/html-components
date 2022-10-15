@@ -5,7 +5,8 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="stylesheet" href="./pages/common.css">
+  <link rel="stylesheet" href="./pages/selector.css">
   <style>
     /* disables animatio before dom loaded */
     .preloader {
@@ -22,7 +23,7 @@
     document.addEventListener('DOMContentLoaded', handlePreloader);
   </script>
   <script src="./pages/common.js" type="module"></script>
-  <script src="./pages/index.js" type="module"></script>
+  <script src="./pages/selector.js" type="module"></script>
   <title>HTML компоненты</title>
 </head>
 
@@ -30,15 +31,11 @@
   <header class="header">
     <nav class="header__nav">
       <ul class="header__navlist">
-        <li class="header__navitem"><a href="index.html"
-            class="header__navitem-link underline-animation header__navitem-link_current">Главная</a></li>
-        <li class="header__navitem"><a href="components.html"
-            class="header__navitem-link underline-animation">Мелкие&nbsp;компоненты</a></li>
+        <li class="header__navitem"><a href="index.html" class="header__navitem-link underline-animation header__navitem-link_current">Главная</a></li>
+        <li class="header__navitem"><a href="components.html" class="header__navitem-link underline-animation">Мелкие&nbsp;компоненты</a></li>
         <li class="header__navitem"><a href="index.html" class="header__navitem-link underline-animation">Меню</a></li>
-        <li class="header__navitem"><a href="slider.html" class="header__navitem-link underline-animation">Слайдер</a>
-        </li>
-        <li class="header__navitem"><a href="selector.html"
-            class="header__navitem-link underline-animation">Селектор</a></li>
+        <li class="header__navitem"><a href="slider.html" class="header__navitem-link underline-animation">Слайдер</a></li>
+        <li class="header__navitem"><a href="selector.html" class="header__navitem-link underline-animation">Селектор</a></li>
       </ul>
     </nav>
 
@@ -81,11 +78,9 @@
             <nav class="menu__nav">
               <ul class="menu__list">
                 <li class="menu__item"><a href="index.html" class="menu__item-link underline-animation">Главная</a></li>
-                <li class="menu__item"><a href="components.html"
-                    class="menu__item-link underline-animation">Мелкие&nbsp;компоненты</a></li>
+                <li class="menu__item"><a href="components.html" class="menu__item-link underline-animation">Мелкие&nbsp;компоненты</a></li>
                 <li class="menu__item"><a href="menu.html" class="menu__item-link underline-animation">Меню</a></li>
-                <li class="menu__item"><a href="slider.html" class="menu__item-link underline-animation">Слайдер</a>
-                </li>
+                <li class="menu__item"><a href="slider.html" class="menu__item-link underline-animation">Слайдер</a></li>
                 <li class="menu__item"><a href="selector.html" class="menu__item-link underline-animation">Селектор</a>
                 </li>
               </ul>
@@ -104,24 +99,33 @@
   </header>
 
   <main class="main">
-    <section class="section">
-      <h1 class="section__header">HTML компоненты</h1>
-      <p class="section__paragraph">
 
-      </p>
+    <section class="section">
+      <h2 class="section__header">Селектор города</h2>
+
+      <section class="ls" aria-label="Выбор с поиском из списка">
+
+        <form action="" novalidate name="ls-form" class="ls__form">
+          <input type="text" class="ls__input" name="ls-input" placeholder="Название города">
+          <button class="ls__btn-transparent" type="submit"><img src="./images/loupe.png" alt="Search"
+              class="ls__search-image"></button>
+        </form>
+
+        <div class="ls__container">
+          <ul class="ls__list">
+          </ul>
+
+          <template id="ls-city">
+            <li class="ls__list-item" title=""></li>
+          </template>
+        </div>
+      </section>
     </section>
   </main>
 
   <footer class="footer">
     <small class="footer__smallprint">2022 &copy; by Варушичев Михаил</small>
   </footer>
-
-  <!-- <div class="imagepopup">
-    <figure class="imagepopup__figure">
-      <img src="#" alt="#" class="imagepopup__img">
-      <figcaption class="imagepopup__caption">#</figcaption>
-    </figure>
-  </div> -->
 
   <div class="hint-bubble">
     <p class="hint-bubble__content">

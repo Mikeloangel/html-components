@@ -2,7 +2,9 @@
   padding: 5px;
   margin: 0;
   box-sizing: border-box;
-  width: 100%;
+  /* width: 100%; */
+  max-width: 200px;
+  max-height: 50px;
 
   background-color: white;
   border-radius: 5px;
@@ -71,11 +73,11 @@
   visibility: hidden;
 
   transition: transform 600ms ease-in-out,
-              opacity 600ms ease-in-out,
-              visibility 600ms ease-in-out;
+    opacity 600ms ease-in-out,
+    visibility 600ms ease-in-out;
 }
 
-.lang__list_active{
+.lang__list_active {
   transform: scaleY(1);
   opacity: 1;
   visibility: visible;
@@ -89,8 +91,8 @@
   text-underline-offset: 2px;
 }
 
-.lang__link:hover{
-  text-decoration:solid;
+.lang__link:hover {
+  text-decoration: solid;
   text-decoration-line: underline;
   text-underline-offset: 2px;
 }

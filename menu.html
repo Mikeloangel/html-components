@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./pages/index.css">
+  <link rel="stylesheet" href="./pages/common.css">
   <style>
     /* disables animatio before dom loaded */
     .preloader {
@@ -22,7 +22,7 @@
     document.addEventListener('DOMContentLoaded', handlePreloader);
   </script>
   <script src="./pages/common.js" type="module"></script>
-  <script src="./pages/index.js" type="module"></script>
+  <script src="./pages/menu.js" type="module"></script>
   <title>HTML компоненты</title>
 </head>
 
@@ -30,15 +30,15 @@
   <header class="header">
     <nav class="header__nav">
       <ul class="header__navlist">
-        <li class="header__navitem"><a href="index.html"
-            class="header__navitem-link underline-animation header__navitem-link_current">Главная</a></li>
-        <li class="header__navitem"><a href="components.html"
-            class="header__navitem-link underline-animation">Мелкие&nbsp;компоненты</a></li>
-        <li class="header__navitem"><a href="index.html" class="header__navitem-link underline-animation">Меню</a></li>
-        <li class="header__navitem"><a href="slider.html" class="header__navitem-link underline-animation">Слайдер</a>
+        <li class="header__navitem"><a href="index.html" class="header__navitem-link underline-animation">Главная</a>
         </li>
-        <li class="header__navitem"><a href="selector.html"
-            class="header__navitem-link underline-animation">Селектор</a></li>
+        <li class="header__navitem"><a href="components.html"
+            class="header__navitem-link underline-animation">Мелкие&nbsp;компоненты</a>
+        </li>
+        <li class="header__navitem"><a href="menu.html" class="header__navitem-link underline-animation header__navitem-link_current">Меню</a></li>
+        <li class="header__navitem"><a href="slider.html" class="header__navitem-link underline-animation">Слайдер</a></li>
+        <li class="header__navitem"><a href="selector.html" class="header__navitem-link underline-animation">Селектор</a></li>
+        </li>
       </ul>
     </nav>
 
@@ -81,11 +81,9 @@
             <nav class="menu__nav">
               <ul class="menu__list">
                 <li class="menu__item"><a href="index.html" class="menu__item-link underline-animation">Главная</a></li>
-                <li class="menu__item"><a href="components.html"
-                    class="menu__item-link underline-animation">Мелкие&nbsp;компоненты</a></li>
+                <li class="menu__item"><a href="components.html" class="menu__item-link underline-animation">Мелкие&nbsp;компоненты</a></li>
                 <li class="menu__item"><a href="menu.html" class="menu__item-link underline-animation">Меню</a></li>
-                <li class="menu__item"><a href="slider.html" class="menu__item-link underline-animation">Слайдер</a>
-                </li>
+                <li class="menu__item"><a href="slider.html" class="menu__item-link underline-animation">Слайдер</a></li>
                 <li class="menu__item"><a href="selector.html" class="menu__item-link underline-animation">Селектор</a>
                 </li>
               </ul>
@@ -105,10 +103,8 @@
 
   <main class="main">
     <section class="section">
-      <h1 class="section__header">HTML компоненты</h1>
-      <p class="section__paragraph">
-
-      </p>
+      <h1 class="section__header">Бургер меню</h1>
+      <p class="section__paragraph">Компоненты: поиск, выбор языка и всплывающие подсказки собраны на этой странице</p>
     </section>
   </main>
 
@@ -116,12 +112,6 @@
     <small class="footer__smallprint">2022 &copy; by Варушичев Михаил</small>
   </footer>
 
-  <!-- <div class="imagepopup">
-    <figure class="imagepopup__figure">
-      <img src="#" alt="#" class="imagepopup__img">
-      <figcaption class="imagepopup__caption">#</figcaption>
-    </figure>
-  </div> -->
 
   <div class="hint-bubble">
     <p class="hint-bubble__content">

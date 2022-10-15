@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./pages/components.css">
+  <style>
+    /* disables animatio before dom loaded */
+    .preloader {
+      transition: none !important;
+      -webkit-transition: none !important;
+      -moz-transition: none !important;
+      -ms-transition: none !important;
+      -o-transition: none !important;
+    }
+  </style>
+  <script>
+    // disables transition effects to trigger before load
+    const handlePreloader = () => document.querySelector('.preloader').classList.remove('preloader');
+    document.addEventListener('DOMContentLoaded', handlePreloader);
+  </script>
+  <script src="./pages/common.js" type="module"></script>
+  <script src="./pages/components.js" type="module"></script>
+  <title>HTML компоненты</title>
+</head>
+
+<body class="root preloader">
+  <header class="header">
+    <nav class="header__nav">
+      <ul class="header__navlist">
+        <li class="header__navitem"><a href="index.html" class="header__navitem-link underline-animation">Главная</a>
+        </li>
+        <li class="header__navitem"><a href="components.html"
+            class="header__navitem-link underline-animation header__navitem-link_current">Мелкие&nbsp;компоненты</a>
+        </li>
+        <li class="header__navitem"><a href="menu.html" class="header__navitem-link underline-animation">Меню</a></li>
+        <li class="header__navitem"><a href="slider.html" class="header__navitem-link underline-animation">Слайдер</a></li>
+        <li class="header__navitem"><a href="selector.html" class="header__navitem-link underline-animation">Селектор</a></li>
+        </li>
+      </ul>
+    </nav>
+
+    <div class="header__service">
+      <form class="search-box" id="searchbox">
+        <input type="text" class="search-box__input">
+        <button name="search-box-button" class="search-box__button">
+          <img src="./images/Search.png" alt="Search" class="search-box__image">
+        </button>
+      </form>
+
+      <div class="lang" id="lang">
+        <p class="lang__current">English </p><img src="./images/langset/en.png" alt="EN" class="lang__img">
+
+        <ul class="lang__list">
+          <li class="lang__item">
+            <a href="#" class="lang__link">Русский<img src="./images/langset/ru.png" alt="Russian"
+                class="lang__img"></a>
+          </li>
+          <li class="lang__item">
+            <a href="#" class="lang__link">Indian<img src="./images/langset/in.png" alt="Indian" class="lang__img"></a>
+          </li>
+          <li class="lang__item">
+            <a href="#" class="lang__link">Hindu<img src="./images/langset/is.png" alt="Israel" class="lang__img"></a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="menu">
+        <div class="menu__burger">
+          <div class="menu__burger-line"></div>
+          <div class="menu__burger-line"></div>
+          <div class="menu__burger-line"></div>
+        </div>
+
+        <div class="menu__backdrop">
+          <div class="menu__close"></div>
+
+          <div class="menu__container">
+            <nav class="menu__nav">
+              <ul class="menu__list">
+                <li class="menu__item"><a href="index.html" class="menu__item-link underline-animation">Главная</a></li>
+                <li class="menu__item"><a href="components.html" class="menu__item-link underline-animation">Мелкие&nbsp;компоненты</a></li>
+                <li class="menu__item"><a href="menu.html" class="menu__item-link underline-animation">Меню</a></li>
+                <li class="menu__item"><a href="slider.html" class="menu__item-link underline-animation">Слайдер</a></li>
+                <li class="menu__item"><a href="selector.html" class="menu__item-link underline-animation">Селектор</a>
+                </li>
+              </ul>
+            </nav>
+
+            <ul class="menu__list menu__list_horizontal">
+              <li class="menu__item"><a href="#" class="menu__item-link underline-animation">EN</a></li>
+              <li class="menu__item"><a href="#" class="menu__item-link underline-animation">RU</a></li>
+              <li class="menu__item"><a href="#" class="menu__item-link underline-animation">IT</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <main class="main">
+    <section class="section">
+      <h1 class="section__header">Мелкие компоненты</h1>
+      <p class="section__paragraph">Компоненты: поиск, выбор языка и всплывающие подсказки собраны на этой странице</p>
+    </section>
+    <section class="section">
+      <h2 class="section__title">Поле поиска с анимаций</h2>
+      <div class="section__wrapper">
+        <div class="section__panel">
+          <p class="section__paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloribus eligendi, nostrum dolores sed
+            laboriosam hic voluptatibus corrupti voluptatem ea?
+          </p>
+        </div>
+
+        <div class="section__panel section__panel_demo">
+          <form class="search-box search-box_reversed" id="searchbox2" name="searchbox">
+            <input type="text" class="search-box__input search-box__input_reversed" name="query">
+            <button name="search-box-button" class="search-box__button">
+              <img src="./images/Search.png" alt="Search" class="search-box__image">
+            </button>
+          </form>
+          <p class="section__paragraph">Прошлые <span class="hint" data-tooltip="Храняться в Local Storage!">поисковые
+              запросы:</span></p>
+
+          <ul class="section__list" id="searchList">
+          </ul>
+          <template id="searchItem">
+            <li class="section__list-item"></li>
+          </template>
+
+          <p class="section__paragraph"><button class="button button_hidden" id="clear-search-query">Очистить</button>
+          </p>
+
+        </div>
+        <div class="section__panel">
+          <p class="section__paragraph">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores doloribus eligendi, nostrum dolores sed
+            laboriosam hic voluptatibus corrupti voluptatem ea?
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="section__title">Меню выбора языка</h2>
+      <div class="section__wrapper">
+        <div class="section__panel section__panel_demo">
+          <div class="lang" id="lang2">
+            <p class="lang__current">English </p><img src="./images/langset/en.png" alt="EN" class="lang__img">
+
+            <ul class="lang__list">
+              <li class="lang__item">
+                <a href="#" class="lang__link">Русский<img src="./images/langset/ru.png" alt="Russian"
+                    class="lang__img"></a>
+              </li>
+              <li class="lang__item">
+                <a href="#" class="lang__link">Indian<img src="./images/langset/in.png" alt="Indian"
+                    class="lang__img"></a>
+              </li>
+              <li class="lang__item">
+                <a href="#" class="lang__link">Hindu<img src="./images/langset/is.png" alt="Israel"
+                    class="lang__img"></a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="section__panel">
+          <p class="section__paragraph">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus culpa iure totam
+            labore facere, veritatis fuga voluptate quia optio ex.</p>
+        </div>
+        <div class="section__panel">
+          <p class="section__paragraph">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum dicta dolorum
+            debitis libero voluptatum quia et doloremque fugiat facilis amet nisi, exercitationem nostrum expedita
+            ratione? Eligendi repudiandae illum ullam laborum!</p>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="section__title">Всплывающие подсказки</h2>
+      <div class="section__panel section__panel_demo">
+        <p class="section__paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate consequatur
+          mollitia excepturi impedit eos <span class="hint"
+            data-tooltip="Lorem ipsum dolor sit amet.">consectetur</span> aperiam recusandae libero ipsa quibusdam.
+          Facilis sunt dolores
+          quidem in <span class="hint" data-tooltip="Lorem ipsum ">ipsa nostrum dolor</span> vero nam error sed
+          explicabo quam nobis velit nisi vel, minus recusandae tempora
+          quasi quae officiis. <span class="hint"
+            data-tooltip="Lorem ipsum dolor sit amet consectetur adipisicing elit. Harum, maiores!">Porro suscipit
+            molestias ratione </span>atque iusto!</p>
+      </div>
+    </section>
+    <section class="section">
+      <h2 class="section__title">Попап с картинкой</h2>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small class="footer__smallprint">2022 &copy; by Варушичев Михаил</small>
+  </footer>
+
+  <div class="hint-bubble"><p class="hint-bubble__content">Баббл</p></div>
+</body>
+
+</html>
